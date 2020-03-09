@@ -41,6 +41,6 @@ public class HC {
         System.out.println("Path array: " + pathsMatrix);
 
         this.paths = pathsMatrix;
-        this.numRows = numberOfTasks;
+        numRows = numberOfTasks;
     }
 }

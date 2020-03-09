@@ -32,7 +32,7 @@ public class VRP {
         CommonFunction comFanc = new CommonFunction();
         final Random random = new Random();
 
-        this.numRoutes = random.nextInt(numberOfTasks - 1) + 2;
+        numRoutes = random.nextInt(numberOfTasks - 1) + 2;
         for(int i = 0; i<numberOfTasks;i++){
             ArrayList <Integer>  cost = new ArrayList<>();
             for (int j = 0; j<numberOfTasks;j++){
@@ -46,6 +46,6 @@ public class VRP {
         System.out.println("Number of routes: " + this.numRoutes);
 
         this.costs = costMatrix;
-        this.numRows = numberOfTasks;
+        numRows = numberOfTasks;
     }
 }

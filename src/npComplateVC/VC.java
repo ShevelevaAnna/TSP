@@ -8,6 +8,7 @@ import java.util.Random;
 public class VC {
     private Integer numRows;
     private Integer numVertices;
+    private Integer numCoverage;
     private ArrayList <ArrayList<Integer>> paths;
 
     public VC () {}
@@ -20,6 +21,10 @@ public class VC {
         return numVertices;
     }
 
+    Integer getNumCoverage() {
+        return numCoverage;
+    }
+
     ArrayList <ArrayList <Integer>> getPaths() {
         return paths;
     }
@@ -27,27 +32,32 @@ public class VC {
     public void initialization () {
         System.out.println("initialization() - VC.java");
 
-        int numberOfTasks = 3;
-        int INF = 100000;
+        numVertices = 4;
+        numRows = 4;
+
         ArrayList <ArrayList <Integer>> pathsMatrix = new ArrayList <>();
         CommonFunction comFanc = new CommonFunction();
         final Random random = new Random();
 
-        this.numVertices = random.nextInt(numberOfTasks - 2) + 2;
-        for(int i = 0; i<numberOfTasks;i++){
-            ArrayList <Integer>  paths = new ArrayList<>();
-            for (int j = 0; j<numberOfTasks;j++){
-                if (j == i) paths.add(INF);
-                else if (random.nextInt(2) == 0) paths.add(INF);
-                else paths.add(1);
-            }
-            pathsMatrix.add(comFanc.add(paths));
-        }
+        numCoverage = random.nextInt(numVertices - 2) + 2;
+
+
+        ArrayList <Integer>  paths = new ArrayList<>();
+        paths.add(0); paths.add(1);
+        pathsMatrix.add(comFanc.add(paths));
+        paths = new ArrayList<>();
+        paths.add(0); paths.add(2);
+        pathsMatrix.add(comFanc.add(paths));
+        paths = new ArrayList<>();
+        paths.add(0); paths.add(3);
+        pathsMatrix.add(comFanc.add(paths));
+        paths = new ArrayList<>();
+        paths.add(1); paths.add(2);
+        pathsMatrix.add(comFanc.add(paths));
 
         System.out.println("Path array: " + pathsMatrix);
-        System.out.println("Number of vertices for VC: " + this.numVertices);
+        System.out.println("Number of vertices for VC: " + numCoverage);
 
         this.paths = pathsMatrix;
-        this.numRows = numberOfTasks;
     }
 }

@@ -48,6 +48,6 @@ public class CAP {
 
         this.costs = costMatrix;
         this.salary = salaryMatrix;
-        this.numRows = numberOfTasks;
+        numRows = numberOfTasks;
     }
 }

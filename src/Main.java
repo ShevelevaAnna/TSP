@@ -6,6 +6,7 @@ import npComplateVC.*;
 import java.util.ArrayList;
 
 public class Main {
+
     public static void main(String[] args) {
         //CAP();
         //VRP();
@@ -29,7 +30,7 @@ public class Main {
         // перевод в TSP
         Reduction2CAPToTSP toTSP = new Reduction2CAPToTSP(cap);
         ArrayList<ArrayList<Float>> result_toTSP = toTSP.toTSP();
-        System.out.println("Array toTSP (Main.java): " + result_toTSP + "\n --- \n");
+        printToTSP(result_toTSP);
     }
 
     private static void VRP() {
@@ -44,7 +45,7 @@ public class Main {
         // перевод в TSP
         ReductionVRPToTSP toTSP = new ReductionVRPToTSP(vrp);
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
-        System.out.println("Array toTSP (Main.java): " + result_toTSP + "\n --- \n");
+        printToTSP(result_toTSP);
     }
 
     private static void HC() {
@@ -59,7 +60,7 @@ public class Main {
         // перевод в TSP
         ReductionHCToTSP toTSP = new ReductionHCToTSP(hc);
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
-        System.out.println("Array toTSP (Main.java): " + result_toTSP + "\n --- \n");
+        printToTSP(result_toTSP);
     }
 
     private static void VC() {
@@ -68,10 +69,19 @@ public class Main {
         vc.initialization();
         System.out.println("---");
 
-        // решение HC
+        // решение VC
 
 
         // перевод в TSP
+        ReductionVCToTSP toTSP = new ReductionVCToTSP(vc);
+        ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
+        printToTSP(result_toTSP);
+    }
 
+    private static <T> void printToTSP(ArrayList<ArrayList<T>> result_toTSP){
+        System.out.println("Array toTSP (Main.java): ");
+        for(int i = 0; i<result_toTSP.size();i++)
+            System.out.println(result_toTSP.get(i));
+        System.out.println(" --- ");
     }
 }
