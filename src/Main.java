@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
         //CAP();
         //VRP();
-        //HC();
-        VC();
+        HC();
+        //VC();
     }
 
     private static void CAP() {
@@ -30,7 +30,8 @@ public class Main {
         // перевод в TSP
         Reduction2CAPToTSP toTSP = new Reduction2CAPToTSP(cap);
         ArrayList<ArrayList<Float>> result_toTSP = toTSP.toTSP();
-        printToTSP(result_toTSP);
+        System.out.println("Array toTSP (Main.java): ");
+        printArray(result_toTSP);
     }
 
     private static void VRP() {
@@ -45,7 +46,8 @@ public class Main {
         // перевод в TSP
         ReductionVRPToTSP toTSP = new ReductionVRPToTSP(vrp);
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
-        printToTSP(result_toTSP);
+        System.out.println("Array toTSP (Main.java): ");
+        printArray(result_toTSP);
     }
 
     private static void HC() {
@@ -55,12 +57,15 @@ public class Main {
         System.out.println("---");
 
         // решение HC
-
+        ExactSolutionHC solutionHC = new ExactSolutionHC(hc);
+        if (solutionHC.hamilton(0)) solutionHC.printresult();
+        else System.out.println("Result: Hamilton path does not exist.");
 
         // перевод в TSP
         ReductionHCToTSP toTSP = new ReductionHCToTSP(hc);
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
-        printToTSP(result_toTSP);
+        System.out.println("Array toTSP (Main.java): ");
+        //printArray(result_toTSP);
     }
 
     private static void VC() {
@@ -75,13 +80,13 @@ public class Main {
         // перевод в TSP
         ReductionVCToTSP toTSP = new ReductionVCToTSP(vc);
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
-        printToTSP(result_toTSP);
+        System.out.println("Array toTSP (Main.java): ");
+        printArray(result_toTSP);
     }
 
-    private static <T> void printToTSP(ArrayList<ArrayList<T>> result_toTSP){
-        System.out.println("Array toTSP (Main.java): ");
-        for(int i = 0; i<result_toTSP.size();i++)
-            System.out.println(result_toTSP.get(i));
+    private static <T> void printArray(ArrayList<ArrayList<T>> result_array){
+        for(int i = 0; i<result_array.size();i++)
+            System.out.println(result_array.get(i));
         System.out.println(" --- ");
     }
 }

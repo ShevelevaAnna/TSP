@@ -42,7 +42,9 @@ public class VRP {
             costMatrix.add(comFanc.add(cost));
         }
 
-        System.out.println("Cost array: " + costMatrix);
+        System.out.println("Cost array: ");
+        for(int i = 0; i<numberOfTasks; i++)
+            System.out.println(costMatrix.get(i));
         System.out.println("Number of routes: " + this.numRoutes);
 
         this.costs = costMatrix;

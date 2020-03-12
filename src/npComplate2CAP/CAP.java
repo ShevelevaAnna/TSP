@@ -43,8 +43,12 @@ public class CAP {
             salaryMatrix.add(comFanc.add(salary));
         }
 
-        System.out.println("Cost array: " + costMatrix);
-        System.out.println("Salary array: " + salaryMatrix);
+        System.out.println("Cost array: ");
+        for(int i = 0; i<numberOfTasks; i++)
+            System.out.println(costMatrix.get(i));
+        System.out.println("Salary array: ");
+        for(int i = 0; i<numberOfTasks; i++)
+            System.out.println(salaryMatrix.get(i));
 
         this.costs = costMatrix;
         this.salary = salaryMatrix;

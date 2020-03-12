@@ -55,7 +55,9 @@ public class VC {
         paths.add(1); paths.add(2);
         pathsMatrix.add(comFanc.add(paths));
 
-        System.out.println("Path array: " + pathsMatrix);
+        System.out.println("Path array: ");
+        for(int i = 0; i<numRows;i++)
+            System.out.println(pathsMatrix.get(i));
         System.out.println("Number of vertices for VC: " + numCoverage);
 
         this.paths = pathsMatrix;
