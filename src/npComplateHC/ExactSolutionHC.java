@@ -16,15 +16,12 @@ public class ExactSolutionHC {
         path.add(0);
         current.set(0,0);
     }
-    public boolean hamilton (int currVert){
+    public boolean hamilton (int currVert) {
         boolean result = false;
-        for(int v = 0; v < hc.getNumRows() && !result; v++)
-        {
-            if(hc.getPaths().get(path.get(currVert)).get(v) == 1)
-            {
+        for(int v = 0; v < hc.getNumRows() && !result; v++) {
+            if(hc.getPaths().get(path.get(currVert)).get(v) == 1) {
                 if ((currVert + 1) == hc.getNumRows() &&  v == 0 ) result = true;
-                else if (current.get(v) == -1)
-                {
+                else if (current.get(v) == -1) {
                     current.set(v, currVert + 1);
                     path.add(v);
                     result = hamilton (currVert + 1) ;
@@ -34,7 +31,8 @@ public class ExactSolutionHC {
                     }
                 }
             }
-        }   return result;
+        }
+        return result;
     }
 
     public void printresult(){

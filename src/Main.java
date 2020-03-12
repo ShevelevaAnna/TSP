@@ -10,8 +10,8 @@ public class Main {
     public static void main(String[] args) {
         //CAP();
         //VRP();
-        HC();
-        //VC();
+        //HC();
+        VC();
     }
 
     private static void CAP() {
@@ -76,7 +76,14 @@ public class Main {
         System.out.println("---");
 
         // решение VC
-
+        ExactSolutionVC solutionVC = new ExactSolutionVC(vc);
+        System.out.println("coverages() - ExactSolutionVC.java");
+        if (solutionVC.coverages()) {
+            System.out.println("Result: A graph cover of size k exists.");
+            solutionVC.printresult();;
+        }
+        else System.out.println("Result: A graph cover of size k  does not exist.");
+        System.out.println(" --- ");
 
         // перевод в TSP
         ReductionVCToTSP toTSP = new ReductionVCToTSP(vc);
