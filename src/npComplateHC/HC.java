@@ -23,7 +23,7 @@ public class HC {
         System.out.println("initialization() - HC.java");
 
         int numberOfTasks = 6;
-        int INF = 0;
+        int INF = 100000;
         ArrayList <ArrayList <Integer>> pathsMatrix = new ArrayList <>();
         CommonFunction comFanc = new CommonFunction();
         final Random random = new Random();

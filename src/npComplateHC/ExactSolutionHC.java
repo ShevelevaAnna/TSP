@@ -42,5 +42,6 @@ public class ExactSolutionHC {
         for (int p = 0 ; p < hc.getNumRows(); p++)
             System.out.print(path.get(p)+ " ");
         System.out.println(path.get(0));
+        System.out.println(" --- ");
     }
 }

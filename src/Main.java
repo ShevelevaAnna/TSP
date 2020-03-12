@@ -58,6 +58,7 @@ public class Main {
 
         // решение HC
         ExactSolutionHC solutionHC = new ExactSolutionHC(hc);
+        System.out.println("hamilton() - ExactSolutionHC.java");
         if (solutionHC.hamilton(0)) solutionHC.printresult();
         else System.out.println("Result: Hamilton path does not exist.");
 
@@ -65,7 +66,7 @@ public class Main {
         ReductionHCToTSP toTSP = new ReductionHCToTSP(hc);
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
         System.out.println("Array toTSP (Main.java): ");
-        //printArray(result_toTSP);
+        printArray(result_toTSP);
     }
 
     private static void VC() {
