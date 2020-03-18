@@ -1,7 +1,9 @@
+import commonFunction.CommonFunction;
 import npComplate2CAP.*;
 import npComplateVRP.*;
 import npComplateHC.*;
 import npComplateVC.*;
+import npComplateTSP.*;
 
 import java.util.ArrayList;
 
@@ -32,6 +34,15 @@ public class Main {
         ArrayList<ArrayList<Float>> result_toTSP = toTSP.toTSP();
         System.out.println("Array toTSP (Main.java): ");
         printArray(result_toTSP);
+
+        // Решение TSP
+        CommonFunction comFanc = new CommonFunction();
+        ArrayList<ArrayList<Float>> resultFloat_toTSP = result_toTSP;
+        TSP tsp = new TSP(resultFloat_toTSP);
+        ExactSolutionTSP solutionTSP = new ExactSolutionTSP(tsp);
+        if(solutionTSP.resultTSP()) System.out.println("Result: "+solutionTSP.getMinPath() );
+        else System.out.println("Result: TSP does not exist.");
+        System.out.println("---");
     }
 
     private static void VRP() {
@@ -48,6 +59,8 @@ public class Main {
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
         System.out.println("Array toTSP (Main.java): ");
         printArray(result_toTSP);
+
+        // Решение TSP
     }
 
     private static void HC() {
@@ -67,6 +80,15 @@ public class Main {
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
         System.out.println("Array toTSP (Main.java): ");
         printArray(result_toTSP);
+
+        // Решение TSP
+        CommonFunction comFanc = new CommonFunction();
+        ArrayList<ArrayList<Float>> resultFloat_toTSP = comFanc.intToFloat(result_toTSP);
+        TSP tsp = new TSP(resultFloat_toTSP);
+        ExactSolutionTSP solutionTSP = new ExactSolutionTSP(tsp);
+        if(solutionTSP.resultTSP() && (solutionTSP.getMinWeight() < solutionTSP.getMinPath().size()+ 1)) System.out.println("Result: "+solutionTSP.getMinPath() );
+        else System.out.println("Result: TSP does not exist.");
+        System.out.println("---");
     }
 
     private static void VC() {
@@ -90,6 +112,15 @@ public class Main {
         ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
         System.out.println("Array toTSP (Main.java): ");
         printArray(result_toTSP);
+
+        // Решение TSP
+        CommonFunction comFanc = new CommonFunction();
+        ArrayList<ArrayList<Float>> resultFloat_toTSP = comFanc.intToFloat(result_toTSP);
+        TSP tsp = new TSP(resultFloat_toTSP);
+        ExactSolutionTSP solutionTSP = new ExactSolutionTSP(tsp);
+        if(solutionTSP.resultTSP()) System.out.println("Result: TSP is exist");
+        else System.out.println("Result: TSP does not exist.");
+        System.out.println("---");
     }
 
     private static <T> void printArray(ArrayList<ArrayList<T>> result_array){
