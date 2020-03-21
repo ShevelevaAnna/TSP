@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        //CAP();
+        CAP();
         //VRP();
         //HC();
-        VC();
+        //VC();
     }
 
     private static void CAP() {
@@ -43,6 +43,12 @@ public class Main {
         if(solutionTSP.resultTSP()) System.out.println("Result: "+solutionTSP.getMinPath() );
         else System.out.println("Result: TSP does not exist.");
         System.out.println("---");
+
+        // Оценка длины пути
+        PathLengthEstimate tspEst = new PathLengthEstimate(resultFloat_toTSP);
+        tspEst.basicData();
+        tspEst.satisfyingEdges();
+        tspEst.hitRate(solutionTSP.getMinPath());
     }
 
     private static void VRP() {
@@ -91,7 +97,7 @@ public class Main {
         System.out.println("---");
     }
 
-    private static void VC() {
+    private static void VC() { //Не работает!
         System.out.println("VC() - Main.java");
         VC vc = new VC ();
         vc.initialization();

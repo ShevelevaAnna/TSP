@@ -36,6 +36,7 @@ public class ExactSolutionTSP {
         tspAlgorithm(0);
 
         if (minWeight < 100000){
+            System.out.println("Length path ="+minWeight);
             return true;
         }
         return  false;
