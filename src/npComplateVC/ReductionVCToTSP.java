@@ -36,9 +36,12 @@ public class ReductionVCToTSP {
     }
 
     private void communicationInComponent (){
-        for (int i = 0; i < vc.getNumRows(); i++)
-            for (int j = 0; j < 3; j++)
-                setCoord(i*4+j,i*4+j+1);
+        for (int i = 0; i < vc.getNumRows(); i++){
+            setCoord(i*4,i*4+1);
+            setCoord(i*4+2,i*4+3);
+            toTSP.get(i*4+1).set(i*4+2, 1);
+            toTSP.get(i*4+3).set(i*4, 1);
+        }
     }
 
     private void communicationBetweenCoverageAndComponent(){

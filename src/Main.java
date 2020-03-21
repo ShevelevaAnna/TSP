@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        CAP();
+        //CAP();
         //VRP();
         //HC();
-        //VC();
+        VC();
     }
 
     private static void CAP() {
