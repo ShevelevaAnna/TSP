@@ -26,7 +26,7 @@ public class CAP {
     public void initialization () {
         System.out.println("initialization() - CAP.java");
 
-        int numberOfTasks = 4;
+        int numberOfTasks = 8;
         ArrayList <ArrayList <Integer>> costMatrix = new ArrayList <>();
         ArrayList <ArrayList <Integer>> salaryMatrix = new ArrayList <>();
         CommonFunction comFanc = new CommonFunction();

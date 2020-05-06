@@ -32,8 +32,8 @@ public class VC {
     public void initialization () {
         System.out.println("initialization() - VC.java");
 
-        numVertices = 4;
-        numRows = 4;
+        numVertices = 5;
+        numRows = 5;
 
         ArrayList <ArrayList <Integer>> pathsMatrix = new ArrayList <>();
         CommonFunction comFanc = new CommonFunction();
@@ -53,6 +53,9 @@ public class VC {
         pathsMatrix.add(comFanc.add(paths));
         paths = new ArrayList<>();
         paths.add(1); paths.add(3);
+        pathsMatrix.add(comFanc.add(paths));
+        paths = new ArrayList<>();
+        paths.add(1); paths.add(4);
         pathsMatrix.add(comFanc.add(paths));
 
         System.out.println("Path array: ");

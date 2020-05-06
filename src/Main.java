@@ -10,10 +10,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        CAP();
-        //VRP();
+        //CAP();
         //HC();
         //VC();
+        TSP();
     }
 
     private static void CAP() {
@@ -46,11 +46,10 @@ public class Main {
 
         // Оценка длины пути
         PathLengthEstimate tspEst = new PathLengthEstimate(resultFloat_toTSP);
-        if (tspEst.isItPossibleToEstimate()) {
-            tspEst.basicData();
-            tspEst.satisfyingEdges();
-            tspEst.hitRate(solutionTSP.getMinPath());
-        }
+        boolean b = tspEst.isItPossibleToEstimate();
+        tspEst.basicData(b);
+        tspEst.satisfyingEdges();
+        tspEst.hitRate(solutionTSP.getMinPath());
     }
 
     private static void VRP() {
@@ -100,11 +99,10 @@ public class Main {
 
         // Оценка длины пути
         PathLengthEstimate tspEst = new PathLengthEstimate(resultFloat_toTSP);
-        if (tspEst.isItPossibleToEstimate()) {
-            tspEst.basicData();
-            tspEst.satisfyingEdges();
-            tspEst.hitRate(solutionTSP.getMinPath());
-        }
+        boolean b = tspEst.isItPossibleToEstimate();
+        tspEst.basicData(b);
+        tspEst.satisfyingEdges();
+        tspEst.hitRate(solutionTSP.getMinPath());
     }
 
     private static void VC() {
@@ -140,8 +138,25 @@ public class Main {
 
         // Оценка длины пути
         PathLengthEstimate tspEst = new PathLengthEstimate(resultFloat_toTSP);
-        if (tspEst.isItPossibleToEstimate()) {
-            tspEst.basicData();
+        boolean b = tspEst.isItPossibleToEstimate();
+        tspEst.basicData(b);
+        tspEst.satisfyingEdges();
+        tspEst.hitRate(solutionTSP.getMinPath());
+    }
+
+    private static void TSP() {
+        System.out.println("TSP() - Main.java");
+        TSP tsp = new TSP();
+        ExactSolutionTSP solutionTSP = new ExactSolutionTSP(tsp);
+        if(solutionTSP.resultTSP()) System.out.println("Result: "+solutionTSP.getMinPath() );
+        else System.out.println("Result: TSP does not exist.");
+        System.out.println("---");
+
+        // Оценка длины пути
+        if(solutionTSP.resultTSP()){
+            PathLengthEstimate tspEst = new PathLengthEstimate(tsp.getPaths());
+            boolean b = tspEst.isItPossibleToEstimate();
+            tspEst.basicData(b);
             tspEst.satisfyingEdges();
             tspEst.hitRate(solutionTSP.getMinPath());
         }

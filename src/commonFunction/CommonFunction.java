@@ -18,7 +18,7 @@ public class CommonFunction<T> {
             currArray = new ArrayList<>();
             for (int j = 0; j < a.size(); j++){
                 if(a.get(i).get(j) == 100000) currArray.add((float)100000);
-                else currArray.add((float)a.get(i).get(j));// НУЖНО в промежуток [0,1]
+                else currArray.add((float)a.get(i).get(j));
             }
             result.add(add(currArray));
         }
