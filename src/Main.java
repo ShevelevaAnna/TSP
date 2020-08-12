@@ -1,6 +1,5 @@
 import commonFunction.CommonFunction;
 import npComplate2CAP.*;
-import npComplateVRP.*;
 import npComplateHC.*;
 import npComplateVC.*;
 import npComplateTSP.*;
@@ -10,10 +9,10 @@ import java.util.ArrayList;
 public class Main {
 
     public static void main(String[] args) {
-        //CAP();
+        CAP();
         //HC();
         //VC();
-        TSP();
+        //TSP();
     }
 
     private static void CAP() {
@@ -50,24 +49,6 @@ public class Main {
         tspEst.basicData(b);
         tspEst.satisfyingEdges();
         tspEst.hitRate(solutionTSP.getMinPath());
-    }
-
-    private static void VRP() {
-        System.out.println("VRP() - Main.java");
-        VRP vrp = new VRP ();
-        vrp.initialization();
-        System.out.println("---");
-
-        // решение VRP
-
-
-        // перевод в TSP
-        ReductionVRPToTSP toTSP = new ReductionVRPToTSP(vrp);
-        ArrayList<ArrayList<Integer>> result_toTSP = toTSP.toTSP();
-        System.out.println("Array toTSP (Main.java): ");
-        printArray(result_toTSP);
-
-        // Решение TSP
     }
 
     private static void HC() {
@@ -148,9 +129,6 @@ public class Main {
         System.out.println("TSP() - Main.java");
         TSP tsp = new TSP();
         ExactSolutionTSP solutionTSP = new ExactSolutionTSP(tsp);
-        if(solutionTSP.resultTSP()) System.out.println("Result: "+solutionTSP.getMinPath() );
-        else System.out.println("Result: TSP does not exist.");
-        System.out.println("---");
 
         // Оценка длины пути
         if(solutionTSP.resultTSP()){
