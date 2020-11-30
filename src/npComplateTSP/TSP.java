@@ -25,8 +25,8 @@ public class TSP {
     public TSP () {
         System.out.println("constructor initialization TSP() - TSP.java");
 
-        int numberOfTasks = 9;
-        int sparseness = 1; // вероятность 1 к sparseness
+        int numberOfTasks = 8;
+        int sparseness = 2; // вероятность 1 к sparseness
 
         ArrayList <ArrayList <Integer>> costMatrix = new ArrayList <>();
         CommonFunction comFanc = new CommonFunction();

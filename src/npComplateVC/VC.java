@@ -39,7 +39,7 @@ public class VC {
         CommonFunction comFanc = new CommonFunction();
         final Random random = new Random();
 
-        numCoverage = random.nextInt(numVertices - 2) + 2;
+        numCoverage = 1;//random.nextInt(numVertices - 2) + 2;
 
 
         ArrayList <Integer>  paths = new ArrayList<>();

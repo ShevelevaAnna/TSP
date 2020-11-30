@@ -88,11 +88,11 @@ public class PathLengthEstimate {
         System.out.println("basicData() - PathLengthEstimate.java");
 
         float MX = 0;
-        MX = varSer.get(0).get(0)*varSer.get(0).get(0)*varSer.get(0).get(1)/N;
+        MX = varSer.get(0).get(0)*varSer.get(0).get(0)*varSer.get(0).get(1)/2/N;
         for (int i=1; i< interval-1;i++){
-            MX += varSer.get(i).get(0)*varSer.get(i).get(0)*varSer.get(i).get(1)/N - varSer.get(i-1).get(0)*varSer.get(i-1).get(0)*varSer.get(i-1).get(1)/N;
+            MX += varSer.get(i).get(0)*varSer.get(i).get(0)*varSer.get(i).get(1)/2/N - varSer.get(i-1).get(0)*varSer.get(i-1).get(0)*varSer.get(i-1).get(1)/2/N;
         }
-        MX += varSer.get(interval-1).get(1)/N - varSer.get(interval-2).get(0)*varSer.get(interval-2).get(0)*varSer.get(interval-2).get(1)/N;
+        MX += varSer.get(interval-1).get(1)/2/N - varSer.get(interval-2).get(0)*varSer.get(interval-2).get(0)*varSer.get(interval-2).get(1)/2/N;
 
         //float Skn = (float)1.04571*(1-(float)Math.exp(-6.07467/N));
         //float sigma = (float)0.40854 * k;
@@ -108,7 +108,6 @@ public class PathLengthEstimate {
         }
         float MSa = min*numRows+(max-min)*MX*numRows;
         float sqrtDSa = (max-min)*(float)Math.sqrt(numRows*DX);
-        System.out.println(min+(max-min)*MX);
 
         System.out.println("N=" + N+"\nmax=" + max+"\nmin=" + min+"\nk=" + k+
                 "\nMX=" +MX +"\nDX=" +DX +"\nMSa=" + MSa+"\nsqrtDSa=" + sqrtDSa +"\n---");

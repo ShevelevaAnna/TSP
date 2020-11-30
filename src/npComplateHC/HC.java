@@ -22,7 +22,7 @@ public class HC {
     public void initialization () {
         System.out.println("initialization() - HC.java");
 
-        int numberOfTasks = 6;
+        int numberOfTasks = 10;
         int INF = 100000;
         ArrayList <ArrayList <Integer>> pathsMatrix = new ArrayList <>();
         CommonFunction comFanc = new CommonFunction();

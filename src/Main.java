@@ -3,16 +3,43 @@ import npComplate2CAP.*;
 import npComplateHC.*;
 import npComplateVC.*;
 import npComplateTSP.*;
+import npComplateKP.*;
 
 import java.util.ArrayList;
 
 public class Main {
 
     public static void main(String[] args) {
-        CAP();
+        KP();
+        //CAP();
         //HC();
         //VC();
         //TSP();
+    }
+
+    private static void KP() {
+        System.out.println("KP() - Main.java");
+        KP kp = new KP ();
+        kp.initialization();
+        System.out.println("---");
+
+       // решение 2-ЗОН
+        ExactSolutionKP KP=new ExactSolutionKP(kp);
+        KP.knapsack();
+
+        // перевод в TSP
+        ReductionKPToTSP toTSP = new ReductionKPToTSP(kp);
+        ArrayList<ArrayList<Float>> result_toTSP = toTSP.toTSP();
+        System.out.println("Array toTSP (Main.java): ");
+        printArray(result_toTSP);
+
+        // Решение TSP
+        ArrayList<ArrayList<Float>> resultFloat_toTSP = result_toTSP;
+        TSP tsp = new TSP(resultFloat_toTSP);
+        ExactSolutionTSP solutionTSP = new ExactSolutionTSP(tsp);
+        if(solutionTSP.resultTSP()) System.out.println("Result: "+solutionTSP.getMinPath() );
+        else System.out.println("Result: TSP does not exist.");
+        System.out.println("---");
     }
 
     private static void CAP() {
